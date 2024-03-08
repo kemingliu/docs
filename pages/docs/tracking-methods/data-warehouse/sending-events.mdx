@@ -31,7 +31,7 @@ Once you have created a warehouse source, follow the below steps to send events 
     - You can specify the column which has the event name.
     - **OR** You can specify the event name for all the events.
 7. Specify the Event Time:
-    - This is the time the event occurred.
+    - This is the time the event occurred. Mixpanel recommends an iso-formatted date string (YYYY-MM-DDTHH:mm:ss), and you should send Event Time to Mixpanel as Coordinated Universal Time (UTC) to ensure it displays correctly in your project.
 8. Identity Management:
     - If your project has **Simplified ID Merge**, the warehouse connector will prompt you to map the `$device_id` and `$user_id` properties to columns in your table during setup. For more information on how we map those fields to the resulting distinct id, refer to our documentation [here](/docs/tracking-methods/id-management/identifying-users#usage).
     - If your project has **Original ID Merge**, the warehouse connector will prompt you to map the Distinct ID column. This column represents the entity to which the events belong; it could be a user or a device. If you want to map two entities together you have to additionally call either `$identify`, `$merge`, `$alias` functions, along with their corresponding properties. For more information, refer to our documentation [here](/docs/tracking-methods/id-management/identifying-users#how-does-the-simplified-api-differ-from-the-original-api).
